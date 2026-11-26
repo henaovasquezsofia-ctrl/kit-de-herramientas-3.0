@@ -3,20 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kit de Consultorio - Psicología Independiente</title>
-  <!-- Redirección automática a la landing page -->
-  <meta http-equiv="refresh" content="0;url=landing/index.html">
-  <!-- Enlace de respaldo para usuarios que no se redirijan automáticamente -->
-  <link rel="alternate" href="landing/index.html" title="Kit de Consultorio">
-  <!-- Enlaces a styles.css para consistencia visual si se muestra sin redirección -->
-  <link rel="stylesheet" href="landing/styles.css">
+  <title>Kit de Consultorio - Herramientas Psicológicas</title>
+  <!-- Google Fonts: Playfair Display e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Si el usuario no se redirige automáticamente, muestra este contenido -->
-  <p>Si no se te redirige automáticamente, <a href="landing/index.html">haz clic aquí para acceder al sitio</a>.</p>
-  <h1>Kit de consultorio</h1>
-  <p>Herramientas psicológicas para psicólogos independientes</p>
-  <p>Este proyecto contiene herramientas para consentimiento informado, notas de sesión y tareas entre sesiones, más un agente terminal y skills de apoyo.</p>
-  <p>Visita <a href="landing/index.html">la landing page</a> para explorar todas las funcionalidades.</p>
+
+  <!-- Avatar de aviso ficticio -->
+  <div class="aviso-ficticio" style="order: -1;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="15" y1="9" x2="9" y2="15"/>
+      <line x1="9" y1="9" x2="15" y2="15"/>
+    </svg>
+    <span>⚠️ <strong>Ejemplos ficticios:</strong> Los datos generados son solo para demostración y no incluyen información real de pacientes. Este kit apoya al profesional y no reemplaza su criterio clínico.</span>
+  </div>
+
+  <!-- Navbar fija -->
+  <nav>
+    <div class="container">
+      <h1>🩺 Kit de Consultorio</h1>
+      <ul>
+        <li><a href="#herramientas">Herramientas</a></li>
+        <li><a href="#agente">Agente</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#usarlo">Cómo usarlo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <header class="hero">
+    <h1>Kit de consultorio</h1>
+    <p>Herramientas psicológicas para psicólogos independientes</p>
+    <div style="margin: 40px auto 0; max-width: 300px;">
+      <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/herramientas/consentimiento_informado.py" class="btn-github" style="background: var(--accent);">Ver en GitHub</a>
+      <a href="#herramientas" style="margin-left: 15px; background: var(--accent2);">Explorar herramientas</a>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- SECCIÓN HERRAMIENTAS -->
+  <!-- ========================================== -->
+  <section id="herramientas" class="section">
+    <h2>Herramientas</h2>
+    <p style="text-align: center; margin-bottom: 40px; color: var(--text-light);">3 herramientas para apoyar tu práctica clínica</p>
+    <div class="cards">
+
+      <!-- A. Consentimiento Informado -->
+      <article class="card fade-in" style="background: #fff; border: 1px solid #e8d5d8;">
+        <div class="emoji" style="width: 50px; height: 50px; margin: 0 auto 16px; display: block;">📄</div>
+        <h3 style="margin: 20px 0 8px; color: var(--accent);">Consentimiento informado</h3>
+        <p style="color: var(--text-light); margin-bottom: 16px; font-size: 0.95rem;">
+          Completa el formulario simulado y genera un ejemplo de consentimiento informado y encuadre terapéutico.
+        </p>
+
+        <form id="form-consentimiento" style="max-width: 280px; margin: 0 auto;">
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Nombre consultante</label>
+            <input type="text" id="consultante-nombre" placeholder="Ej: María Gómez" required
+                   style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Modalidad</label>
+            <select id="modalidad" required
+                    style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+              <option value="" disabled>-- Selecciona --</option>
+              <option value="presencial">Presencial</option>
+              <option value="virtual">Virtual</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Honorarios</label>
+            <input type="number" id="honorarios" placeholder="Ej: 5000" required
+                   style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Política cancelación (horas)</label>
+            <input type="number" id="cancelacion" placeholder="Ej: 2" required
+                   style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+          </div>
+          <button type="button" id="btn-generar-consentimiento"
+                  style="width: 100%; margin-top: 10px; padding: 10px; background: var(--accent); color: #ffffff; border: none; border-radius: 6; font-size: 0.9rem; font-weight: 600;">
+            Generar ejemplo
+          </button>
+        </form>
+
+        <div id="resultado-consentimiento" style="display: none; margin-top: 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;"></div>
+      </article>
+
+      <!-- B. Notas de Sesión -->
+      <article class="card fade-in fade-in-delay-1" style="background: #fff; border: 1px solid #d8e0e8;">
+        <div class="emoji" style="width: 50px; height: 50px; margin: 0 auto 16px; display: block;">📓</div>
+        <h3 style="margin: 20px 0 8px; color: var(--accent2);">Notas de sesión</h3>
+        <p style="color: var(--text-light); margin-bottom: 16px; font-size: 0.95rem;">
+          Ingresa tus apuntes y organiza la nota en formato estructurado S-O-A-P.
+        </form>
+
+        <form id="form-notas" style="max-width: 280px; margin: 0 auto;">
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Motivo</label>
+            <textarea id="motivo" rows="2" required
+                      style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem; min-height: 4rem;"></textarea>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Observaciones</label>
+            <textarea id="observaciones" rows="3" required
+                      style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem; min-height: 6rem;"></textarea>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Intervenciones</label>
+            <textarea id="intervenciones" rows="3" required
+                      style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem; min-height: 6rem;"></textarea>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Plan</label>
+            <textarea id="plan" rows="3" required
+                      style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem; min-height: 4rem;"></textarea>
+          </div>
+          <button type="button" id="btn-organizar" style="width: 100%; margin-top: 10px; padding: 10px; background: var(--accent2); color: #ffffff; border: none; border-radius: 6; font-size: 0.9rem; font-weight: 600;">
+            Organizar nota
+          </button>
+        </form>
+
+        <div id="resultado-notas" style="display: none; margin-top: 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;"></div>
+      </article>
+
+      <!-- C. Tareas entre Sesiones -->
+      <article class="card fade-in fade-in-delay-2" style="background: #fff; border: 1px solid #d8e8d4;">
+        <div class="emoji" style="width: 50px; height: 50px; margin: 0 auto 16px; display: block;">⚙️</div>
+        <h3 style="margin: 20px 0 8px; color: var(--accent2);">Tareas entre sesiones</h3>
+        <p style="color: var(--text-light); margin-bottom: 16px; font-size: 0.95rem;">
+          Selecciona un objetivo terapéutico y recibe una sugerencia de ejercicio.
+        </p>
+
+        <form style="max-width: 280px; margin: 0 auto;">
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text); margin-bottom: 4px;">Objetivo terapéutico</label>
+            <select id="objetivo-tema" required
+                    style="width: 100%; padding: 8px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+              <option value="" disabled>-- Selecciona --</option>
+              <option value="ansiedad">Ansiedad</option>
+              <option value="regulacion">Regulación emocional</option>
+              <option value="sueño">Hábitos de sueño</option>
+            </select>
+          </div>
+          <button type="button" id="btn-sugerir-tarea"
+                  style="width: 100%; margin-top: 8px; padding: 10px; background: var(--accent); color: #ffffff; border: none; border-radius: 6; font-size: 0.9rem; font-weight: 600;">
+            Sugerir tarea
+          </button>
+        </form>
+
+        <div id="resultado-tarea" style="display: none; margin-top: 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECCIÓN AGENTE TIPO CHAT -->
+  <!-- ========================================== -->
+  <section id="agente" class="section" style="background: var(--bg); border-radius: 16px; padding: 30px 20px; margin: 20px 0;">
+    <h2>🤖 Agente de terminal</h2>
+    <p style="color: var(--text-light); margin-bottom: 20px; font-size: 0.95rem;">
+      Una simulación por consola. El usuario escribe una petición y el agente decide qué herramienta usar, pide datos de ejemplo y muestra un resultado.
+    </p>
+
+    <div style="background: #f8f9fa; border: 1px solid #e3e6f0; border-radius: 12; padding: 20px; margin-bottom: 20px;">
+      <p style="color: var(--text-light); font-size: 0.9rem; margin: 0 0 15px 0;">
+        Escribe tu petición abajo y el agente responderá.
+      </p>
+
+      <form style="display: grid; gap: 12px;">
+        <input type="text" id="entrada-agente"
+               placeholder="Escribe tu petición (ej: 'necesito un consentimiento para un paciente nuevo')"
+               style="padding: 10px; border: 1px solid #e3e6f0; border-radius: 6; font-size: 0.9rem;">
+        <button type="button" id="btn-enviar"
+                style="padding: 10px; background: var(--accent); color: #ffffff; border: none; border-radius: 6; font-size: 0.85rem; font-weight: 600;">
+          Enviar
+        </button>
+      </form>
+    </div>
+
+    <div id="mensajes-agente" style="height: 200px; overflow-y: auto; margin-top: 20px; padding: 10px; background: #f8f9fa; border: 1px solid #e3e6f0; border-radius: 8;">
+      <!-- Mensajes se insertan dinámicamente -->
+      <p style="color: var(--text-light); font-size: 0.85rem; text-align: center; padding: 10px;">
+        Escribe arriba y presiona Enter o da a Enviar
+      </p>
+    </div>
+
+    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e3e6f0;">
+      <button type="button" id="btn-reset"
+              style="width: 100%; padding: 8px; background: #6c757d; color: #ffffff; border: none; border-radius: 6; font-size: 0.85rem;">
+        Limpiar conversación
+        </button>
+    </div>
+
+    <div style="margin-top: 20px; font-size: 0.85rem; color: var(--text-light);">
+      <p>Cómo funciona el agente real por terminal:</p>
+    <code style="background: #e9ecef; padding: 2px 4px; border-radius: 4; font-size: 0.75rem;">
+      python3 kit.py
+    </code>
+    <p style="margin: 5px 0 0 0;">→ Menú interactivo en terminal</p>
+    <p style="margin: 5px 0 0 0;">→ Eliges opción (1: consentimiento, 2: notas, 3: tareas)</p>
+    <p style="margin: 5px 0 0 0;">→ La herramienta pide los datos que faltan</p>
+    <p style="margin: 5px 0 0 0;">→ Genera el archivo correspondiente</p>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECCIÓN SKILLS EXPANSIBLES -->
+  <!-- ========================================== -->
+  <section id="skills" class="section">
+    <h2>Skills de apoyo</h2>
+    <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+      Tarjetas colapsables con definición, uso y ejemplos de cada skill
+    </p>
+    <div class="cards" style="gap: 20px;">
+
+      <!-- A. Ética y confidencialidad -->
+      <article class="skill-acordeon" style="background: #fff; border: 1px solid #e8d5d8; border-radius: 12;">
+        <h3 class="skill-titulo" style="padding: 20px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <span>🛡️ Ética y confidencialidad</span>
+          <span class="skill-toggle-icon">▶</span>
+        </h3>
+        <div class="skill-contenido" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 16px 20px;">
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            Conjunto de principios y normas que regulan la conducta del profesional psicológico, garantizando la protección de la información del consultante y estableciendo los límites de la confidencialidad.
+          </p>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            <strong>Para qué sirve:</strong> Garantizar la privacidad del consultante, establecer límites claros sobre qué información puede compartirse y en qué circunstancias (riesgo de daño, orden judicial).
+          </p>
+          <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.4;">
+            <strong>Cómo usarla:</strong>
+          </p>
+          <ol style="margin: 0 0 0 1.2rem; padding: 0; font-size: 0.85rem; line-height: 1.4;">
+            <li>Identificar la información sensible en el consultante</li>
+            <li>Verificar los límites de confidencialidad en tu práctica profesional</li>
+            <li>Aplicar los excepciones legales (riesgo, judicial)</li>
+          </ol>
+          <p style="margin: 4px 0 0 0; font-size: 0.75rem; color: var(--accent);">
+            ✅ Bien: 'No comparto información sin consentimiento, salvo riesgo de daño inmediato'<br>
+            ❌ A evitar: 'Te cuento lo que me contó fulano a tal persona'
+          </p>
+          <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/etica-confidencialidad/SKILL.md"
+             style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.8rem; margin-top: 6px; display: inline-block;">
+            Ver SKILL.md
+          </a>
+        </div>
+      </article>
+
+      <!-- B. Lenguaje empático -->
+      <article class="skill-acordeon" style="background: #fff; border: 1px solid #d8e0e8; border-radius: 12;">
+        <h3 class="skill-titulo" style="padding: 20px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <span>💬 Lenguaje empático</span>
+          <span class="skill-toggle-icon">▶</span>
+        </h3>
+        <div class="skill-contenido" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 16px 20px;">
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            Habilidad para transformar lenguaje técnico, formal o cerrado a un tono más abierto, cálido y comprensible, manteniendo el profesionalismo en la comunicación con consultantes.
+          </p>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            <strong>Para qué sirve:</strong> Mejorar la relación terapéutica, validar los sentimientos del consultante y facilitar una comunicación más eficaz y cercana.
+          </p>
+          <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.4;">
+            <strong>Cómo usarla:</strong>
+          </p>
+          <ol style="margin: 0 0 0 1.2rem; padding: 0; font-size: 0.85rem; line-height: 1.4;">
+            <li>Identificar lenguaje técnico o cerrado en la comunicación</li>
+            <li>Reemplazar por frases abiertas y validadoras</li>
+            <li>Mantener la precisión informativa con un tono más cálido</li>
+          </ol>
+          <p style="margin: 4px 0 0 0; font-size: 0.75rem; color: var(--accent);">
+            ✅ Bien: 'Entiendo que te sientas abrumado con tanto asunto'❌ A evitar: 'Entiende los factores de estrés'</p>
+          <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/lenguaje-empatico/SKILL.md"
+             style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.8rem; margin-top: 6px; display: inline-block;">
+            Ver SKILL.md
+          </a>
+        </div>
+      </article>
+
+      <!-- C. Redacción profesional -->
+      <article class="skill-acordeon" style="background: #fff; border: 1px solid #d8e8d4; border-radius: 12;">
+        <h3 class="skill-titulo" style="padding: 20px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <span>✍️ Redacción profesional</span>
+          <span class="skill-toggle-icon">▶</span>
+        </h3>
+        <div class="skill-contenido" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 16px 20px;">
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            Habilidad para normalizar el texto a un formato profesional: corrigiendo informalidades, usando terminología psicológica estandarizada y asegurando la coherencia y consistencia en documentos y informes.
+          </p>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6;">
+            <strong>Para qué sirve:</strong> Garantir que documentos, informes y comunicaciones escritas cumplan con los estándares de profesionalismo esperados en la práctica psicológica.
+          </p>
+          <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.4;">
+            <strong>Cómo usarla:</strong>
+          </p>
+          <ol style="margin: 0 0 0 1.2rem; padding: 0; font-size: 0.85rem; line-height: 1.4;">
+            <li>Revisar documentos en busca de expresiones coloquiales o informalidades</li>
+            <li>Sustituir por terminología técnica psicológica estándar</li>
+            <li>Formatear informe con estructura coherente (introducción, método, resultados, discusión)</li>
+          </ol>
+          <p style="margin: 4px 0 0 0; font-size: 0.75rem; color: var(--accent);">
+            ✅ Bien: 'El paciente presenta síntomas de ansiedad desde hace 3 meses'❌ A evitar: 'El paciente está preocupado por muchas cosas'</p>
+          <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/redaccion-profesional/SKILL.md"
+             style="color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.8rem; margin-top: 6px; display: inline-block;">
+            Ver SKILL.md
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SECCIÓN CÓMO USARLO -->
+  <!-- ========================================== -->
+  <section id="usarlo" class="section">
+    <h2>Cómo usarlo</h2>
+    <ol style="margin: 0 0 0 20px; padding: 0;">
+      <li>Clona o descarga este repositorio en tu computadora.</li>
+      <li>Ejecuta <code>python3 kit.py</code> en la terminal para acceder al menú principal.</li>
+      <li>Selecciona una herramienta (1: consentimiento informado, 2: notas de sesión, 3: tareas entre sesiones).</li>
+      <li>Sigue las instrucciones en pantalla para generar documentos, notas o tareas.</li>
+      <li>Los resultados se guardan como archivos de texto en el directorio correspondiente.</li>
+      <li>Explora la landing page para probar las simulaciones interactivas.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0" class="github-btn" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a>
+    <p class="ethical-note">Este kit apoya el trabajo del profesional psicológico y no reemplaza su criterio clínico.</p>
+  </footer>
+
+  <!-- Scripts de animación y utilidades -->
+  <script src="script.js"></script>
 </body>
 </html>
