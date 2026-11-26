@@ -3,141 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kit de Consultorio - Herramientas Psicológicas</title>
-  <!-- Google Fonts: Playfair Display e Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Kit de Consultorio - Psicología Independiente</title>
+  <!-- Redirección automática a la landing page -->
+  <meta http-equiv="refresh" content="0;url=landing/index.html">
+  <!-- Enlace de respaldo para usuarios que no se redirijan automáticamente -->
+  <link rel="alternate" href="landing/index.html" title="Kit de Consultorio">
+  <!-- Enlaces a styles.css para consistencia visual si se muestra sin redirección -->
+  <link rel="stylesheet" href="landing/styles.css">
 </head>
 <body>
-
-  <!-- Navbar fija -->
-  <nav>
-    <div class="container">
-      <h1>🩺 Kit de Consultorio</h1>
-      <ul>
-        <li><a href="#herramientas">Herramientas</a></li>
-        <li><a href="#agente">Agente</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#usarlo">Cómo usarlo</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero section -->
-  <header class="hero">
-    <h1>Kit de consultorio</h1>
-    <p>Herramientas psicológicas para psicólogos independientes</p>
-    <div style="margin: 40px auto 0; max-width: 300px;">
-      <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/herramientas/consentimiento_informado.py" class="btn-github" style="background: var(--accent);">Ver en GitHub</a>
-      <a href="#herramientas" style="margin-left: 15px; background: var(--accent2);">Explorar herramientas</a>
-    </div>
-  </header>
-
-  <!-- Sección Herramientas -->
-  <section id="herramientas" class="section">
-    <h2>Herramientas</h2>
-    <p style="text-align: center; margin-bottom: 40px; color: var(--text-light);">3 herramientas para apoyar tu práctica clínica</p>
-    <div class="cards">
-      <article class="card fade-in">
-        <div class="emoji">📄</div>
-        <h3>Consentimiento informado</h3>
-        <p>Genera documentos de consentimiento informado con datos del profesional, encuadre terapéutico, honora­rios, políticas de cancelación y confidencialidad.</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/herramientas/consentimiento_informado.py" class="btn-github" style="background: var(--accent);">Ver en GitHub</a>
-      </article>
-
-      <article class="card fade-in fade-in-delay-1">
-        <div class="emoji">📓</div>
-        <h3>Notas de sesión</h3>
-        <p>Organiza notas de sesión en formato estructurado (S-O-A-P): motivo, observaciones, intervenciones y plan. Guarda archivos locales automáticamente.</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/herramientas/notas_sesion.py" class="btn-github" style="background: var(--accent2);">Ver en GitHub</a>
-      </article>
-
-      <article class="card fade-in fade-in-delay-2">
-        <div class="emoji">⚙️</div>
-        <h3>Tareas entre sesiones</h3>
-        <p>Genera tareas o ejercicios personalizados entre sesiones según el objetivo terapéutico (ansiedad, sueño, manejo del enojo, hábitos saludables).</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/herramientas/tareas_entre_sesiones.py" class="btn-github" style="background: var(--accent2);">Ver en GitHub</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- Sección Agente -->
-  <section id="agente" class="section" style="background: linear-gradient(135deg, #f8fbff 0%, #e0f7fa 100%); border-radius: 16px; padding: 40px 20px; margin: 20px 0;">
-    <h2>🤖 Agente de terminal</h2>
-    <div class="emoji" style="font-size: 80px; margin: 0 auto 20px; display: block;">🤖</div>
-    <p>Un agente sencillo por consola. El usuario escribe lo que necesita, el agente decide cuál de las 3 herramientas usar, pide los datos que falten y devuelve el resultado. Sin Telegram, sin servidores, sin interfaz externa.</p>
-    <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/agente/agente.py" class="btn-github" style="background: var(--accent); margin-top: 20px;">Ver en GitHub</a>
-  </section>
-
-  <!-- Sección Skills -->
-  <section id="skills" class="section">
-    <h2>Skills de apoyo</h2>
-    <p style="text-align: center; margin-bottom: 40px; color: var(--text-light);">3 skills para complementar tu práctica</p>
-    <div class="cards">
-      <article class="card fade-in" style="background: #ffffff;">
-        <div class="emoji" style="font-size: 50px; margin: 0 auto 16px; display: block;">🛡️</div>
-        <h3>Ética y confidencialidad</h3>
-        <p>Principios de confidencialidad y límites éticos para la práctica psicológica. Apoyo en la identificación de información sensible y recordatorio de los límites de confidencialidad.</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/etica-confidencialidad/SKILL.md" class="btn-github" style="background: var(--accent2);">Ver SKILL.md</a>
-      </article>
-
-      <article class="card fade-in fade-in-delay-1">
-        <div class="emoji" style="font-size: 50px; margin: 0 auto 16px; display: block;">💬</div>
-        <h3>Lenguaje empático</h3>
-        <p>Transformación de lenguaje técnico o formal a un tono más empático y cálido, manteniendo el profesionalismo en la comunicación con consultantes.</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/lenguaje-empatico/SKILL.md" class="btn-github" style="background: var(--accent2);">Ver SKILL.md</a>
-      </article>
-
-      <article class="card fade-in fade-in-delay-2">
-        <div class="emoji" style="font-size: 50px; margin: 0 auto 16px; display: block;">✍️</div>
-        <h3>Redacción profesional</h3>
-        <p>Normalización de texto a formato profesional: corrección de informalidades, terminología psicológica estandarizada y formato coherente para documentos y informes.</p>
-        <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0/blob/main/skills/redaccion-profesional/SKILL.md" class="btn-github" style="background: var(--accent2);">Ver SKILL.md</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- Sección Cómo usarlo -->
-  <section id="usarlo" class="section">
-    <h2>Cómo usarlo</h2>
-    <ol class="steps">
-      <li>Clona o descarga este repositorio en tu computadora.</li>
-      <li>Ejecuta <code>python3 kit.py</code> en la terminal para acceder al menú principal.</li>
-      <li>Selecciona una herramienta (1: consentimiento, 2: notas de sesión, 3: tareas entre sesiones).</li>
-      <li>Sigue las instrucciones en pantalla para generar documentos, notas o tareas.</li>
-      <li>Los resultados se guardan como archivos de texto en el directorio correspondiente.</li>
-    </ol>
-  </section>
-
-  <footer>
-    <a href="https://github.com/henaovasquezsofia-ctrl/kit-de-herramientas-3.0" class="github-btn" target="_blank">Repositorio GitHub</a>
-    <p class="ethical-note">Este kit apoya el trabajo del profesional psicológico y no reemplaza su criterio clínico.</p>
-  </footer>
-
-  <!-- Scripts de animación simple -->
-  <script>
-    // Animación fade-in al hacer scroll
-    const elements = document.querySelectorAll('.fade-in');
-    
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-        }
-      });
-    }, observerOptions);
-    
-    elements.forEach(el => {
-      observer.observe(el);
-    });
-  </script>
-
+  <!-- Si el usuario no se redirige automáticamente, muestra este contenido -->
+  <p>Si no se te redirige automáticamente, <a href="landing/index.html">haz clic aquí para acceder al sitio</a>.</p>
+  <h1>Kit de consultorio</h1>
+  <p>Herramientas psicológicas para psicólogos independientes</p>
+  <p>Este proyecto contiene herramientas para consentimiento informado, notas de sesión y tareas entre sesiones, más un agente terminal y skills de apoyo.</p>
+  <p>Visita <a href="landing/index.html">la landing page</a> para explorar todas las funcionalidades.</p>
 </body>
 </html>
