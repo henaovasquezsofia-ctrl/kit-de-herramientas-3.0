@@ -405,32 +405,32 @@ Frases que conviene revisar: ${motivo} (clasificada como Subjetivo)`;
       try {
         // DEPURACIÓN DEL TEXTO
         if (typeof textoUsuario !== 'string') {
-          return '🤖 Agente: Error - el mensaje no es texto válido.';
+          return '[robot] Agente: Error - el mensaje no es texto válido.';
         }
         
         const bajo = textoUsuario.toLowerCase();
 
         // Detectar palabras clave con manejo de errores
         if (bajo.includes('consentimiento') || bajo.includes('consent')) {
-          return `🤖 Agente: Detecté que necesitas consentimiento informado.
+          return `[robot] Agente: Detecté que necesitas consentimiento informado.
 
 Como dato de ejemplo: El agente sugeriría generar un consentimiento con los datos básicos: nombre del profesional, modalidad, honorarios y política de cancelación. Usa el formulario de "Consentimiento informado" para completar los campos reales.
 
 *Nota: El agente real funciona con python3 kit.py → menú → opción 1 → pide datos → genera archivo consentimiento.txt*`;`
         } else if (bajo.includes('nota') || bajo.includes('sesion') || bajo.includes('sesión') || bajo.includes('soap')) {
-          return `🤖 Agente: Detecté que necesitas una nota de sesión.
+          return `[robot] Agente: Detecté que necesitas una nota de sesión.
 
 Como dato de ejemplo: El agente sugeriría organizar tus apuntes en formato SOAP (S-O-A-P). Usa el generador de notas de sesión para estructurar motivo, observaciones, intervenciones y plan.
 
 *Nota: El agente real funciona con python3 kit.py → menú → opción 2 → pide datos → genera nota estructurada*`;`
         } else if (bajo.includes('tarea') || bajo.includes('ejercicio') || bajo.includes('ansiedad')) {
-          return `🤖 Agente: Detecté que necesitas una tarea o ejercicio.
+          return `[robot] Agente: Detecté que necesitas una tarea o ejercicio.
 
 Como dato de ejemplo: El agente sugeriría una tarea según tu objetivo (ansiedad, regulación emocional o hábitos de sueño). Usa el generador de tareas entre sesiones para seleccionar tema, nivel y duración.
 
 *Nota: El agente real funciona con python3 kit.py → menú → opción 3 → pregunta tema/nivel/días → genera archivo tarea_*.txt*`;`
         } else {
-          return `🤖 Agente: No identifico tu necesidad específica.
+          return `[robot] Agente: No identifico tu necesidad específica.
 
 Usa los botones rápidos de abajo o escribe qué necesitas (consentimiento, nota de sesión o tarea). El agente detecta palabras clave para decidir qué herramienta mostrar.
 
@@ -438,7 +438,7 @@ Usa los botones rápidos de abajo o escribe qué necesitas (consentimiento, nota
         }
       } catch (err) {
         console.error('Error en agenteResponder:', err);
-        return '🤖 Agente: Error interno. Por favor, inténtalo de nuevo.';
+        return '[robot] Agente: Error interno. Por favor, inténtalo de nuevo.';
       }
     }
 
