@@ -1,0 +1,25 @@
+ADVERTENCIA: Este es un borrador para revisión del profesional.
+No debe ser compartido con el consultante sin la debida revisión y firma.
+==================================================
+
+FORMATO SOAP
+
+S - SUBJETIVO (Consultante)
+------------------------------
+Dice que tiene ansiedad.
+
+O - OBJETIVO (Profesional)
+------------------------------
+Observo postura encogida y tono de voz bajo.
+
+A - ANÁLISIS (Profesional)
+------------------------------
+
+
+P - PLAN (Profesional)
+------------------------------
+Podría trabajar en técnicas de respiración.
+
+Frases que conviene revisar
+------------------------------
+- Cliente llega tarde.
