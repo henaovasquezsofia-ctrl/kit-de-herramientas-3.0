@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit de Consultorio | Herramientas Clinicas y Agente en Terminal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">Kit de Consultorio</a>
+      <nav class="main-nav" aria-label="Navegacion principal">
+        <a href="#herramientas">Herramientas</a>
+        <a href="#agente">Agente</a>
+        <a href="#skills">Skills</a>
+        <a href="#ejecucion">Ejecucion</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Flujo clinico en terminal · Python 3</p>
+          <h1>Organizacion clinica clara, serena y lista para tu practica.</h1>
+          <p class="lead">
+            Un conjunto de herramientas en Python con menu interactivo mediante
+            <code>python3 kit.py</code> para redactar consentimientos informados,
+            estructurar notas SOAP, disenar tareas entre sesiones y coordinar consultas
+            desde un agente en terminal.
+          </p>
+          <div class="hero-actions">
+            <a href="#herramientas" class="btn btn-primary">Explorar herramientas</a>
+            <button type="button" class="btn btn-secondary" id="copy-run-command">
+              Copiar comando de inicio
+            </button>
+            <span class="copy-feedback" id="command-feedback" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen de estructura del proyecto">
+          <p class="card-kicker">Estructura en el repositorio</p>
+          <ul class="structure-list">
+            <li><strong>kit.py</strong><span>Menu interactivo principal</span></li>
+            <li><strong>herramientas/</strong><span>Consentimiento, notas SOAP y tareas</span></li>
+            <li><strong>agente/agente.py</strong><span>Enrutador clinico en terminal</span></li>
+            <li><strong>skills/</strong><span>Etica, empatia y redaccion</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="herramientas" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Tres modulos principales</p>
+          <h2>Herramientas incluidas y ensayo interactivo</h2>
+          <p>
+            Cada herramienta resuelve una parte concreta del trabajo clinico. Cambia de
+            pestana y prueba un ensayo interactivo de como opera cada modulo.
+          </p>
+        </div>
+
+        <div class="tool-tabs" role="tablist" aria-label="Seleccionar herramienta para ensayo">
+          <button
+            type="button"
+            role="tab"
+            id="tab-consentimiento"
+            class="tool-tab is-active"
+            aria-selected="true"
+            data-tool="consentimiento"
+          >
+            01. Consentimiento informado
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-notas"
+            class="tool-tab"
+            aria-selected="false"
+            data-tool="notas"
+          >
+            02. Notas de sesion (SOAP)
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-tareas"
+            class="tool-tab"
+            aria-selected="false"
+            data-tool="tareas"
+          >
+            03. Tareas entre sesiones
+          </button>
+        </div>
+
+        <div class="tool-workspace">
+          <div class="tool-panel is-active" id="panel-consentimiento" role="tabpanel" aria-labelledby="tab-consentimiento">
+            <div class="panel-grid">
+              <div class="panel-info">
+                <h3>Consentimiento informado</h3>
+                <p>
+                  Solicita los datos del profesional y genera un documento estructurado con
+                  secciones de datos, proceso, encuadre terapeutico, confidencialidad y
+                  derechos del consultante.
+                </p>
+                <p class="file-tag">Archivo: <code>herramientas/consentimiento_informado.py</code></p>
+                <ul class="feature-list">
+                  <li>Encuadre terapeutico claro desde el inicio</li>
+                  <li>Apartado de confidencialidad y alcances</li>
+                  <li>Derechos y participacion activa del consultante</li>
+                </ul>
+              </div>
+
+              <div class="panel-sandbox">
+                <p class="sandbox-title">Ensayo interactivo · Vista previa de encuadre</p>
+                <form id="consent-form" class="sandbox-form">
+                  <div class="field-group">
+                    <label for="pro-name">Nombre del profesional</label>
+                    <input
+                      id="pro-name"
+                      type="text"
+                      value="Sofia Henao Vasquez"
+                      placeholder="Ej. Sofia Henao Vasquez"
+                    />
+                  </div>
+                  <div class="field-row">
+                    <div class="field-group">
+                      <label for="pro-role">Rol / registro</label>
+                      <input
+                        id="pro-role"
+                        type="text"
+                        value="Psicologia en formacion / Consulta"
+                        placeholder="Ej. Psicologia"
+                      />
+                    </div>
+                    <div class="field-group">
+                      <label for="session-freq">Frecuencia y duracion</label>
+                      <input
+                        id="session-freq"
+                        type="text"
+                        value="Semanal · 50 minutos"
+                        placeholder="Ej. Semanal · 50 min"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Generar borrador de ensayo</button>
+                </form>
+
+                <div id="consent-output" class="sandbox-result" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="panel-notas" role="tabpanel" aria-labelledby="tab-notas" hidden>
+            <div class="panel-grid">
+              <div class="panel-info">
+                <h3>Notas de sesion</h3>
+                <p>
+                  Divide los apuntes en frases y las clasifica en formato SOAP (S, O, A, P).
+                  Admite marcado manual con <code>S:</code>, <code>O:</code>, <code>A:</code> y
+                  <code>P:</code>, ademas de senalar frases que conviene revisar.
+                </p>
+                <p class="file-tag">Archivo: <code>herramientas/notas_sesion.py</code></p>
+                <ul class="feature-list">
+                  <li>Clasificacion en Subjetivo, Objetivo, Analisis y Plan</li>
+                  <li>Soporte para etiquetas manuales S:, O:, A:, P:</li>
+                  <li>Deteccion de frases ambiguas para revision</li>
+                </ul>
+              </div>
+
+              <div class="panel-sandbox">
+                <p class="sandbox-title">Ensayo interactivo · Clasificador SOAP de prueba</p>
+                <form id="soap-form" class="sandbox-form">
+                  <div class="field-group">
+                    <label for="soap-input">Apuntes de consulta (usa S:, O:, A:, P: o texto libre)</label>
+                    <textarea id="soap-input" rows="4">S: Refiere dificultad para conciliar el sueno durante la semana. O: Mantiene contacto visual y ritmo de habla pausado. A: Se observa relacion entre rumiacion nocturna y estres laboral. P: Practicar registro breve antes de acostarse durante 5 dias. Quizas revisar esto luego.</textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Clasificar frases</button>
+                </form>
+
+                <div id="soap-output" class="sandbox-result" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="panel-tareas" role="tabpanel" aria-labelledby="tab-tareas" hidden>
+            <div class="panel-grid">
+              <div class="panel-info">
+                <h3>Tareas entre sesiones</h3>
+                <p>
+                  Genera ejercicios personalizados segun tema (ansiedad, sueno, manejo del
+                  enojo, habitos saludables), nivel (basico o intermedio) y duracion de 3 a 7
+                  dias, incluyendo tabla de registro diario y guardado en JSON.
+                </p>
+                <p class="file-tag">Archivo: <code>herramientas/tareas_entre_sesiones.py</code></p>
+                <ul class="feature-list">
+                  <li>4 temas clinicos y 2 niveles de complejidad</li>
+                  <li>Duracion configurable entre 3 y 7 dias</li>
+                  <li>Tabla de seguimiento diario y exportacion en JSON</li>
+                </ul>
+              </div>
+
+              <div class="panel-sandbox">
+                <p class="sandbox-title">Ensayo interactivo · Plan y registro diario</p>
+                <form id="task-form" class="sandbox-form">
+                  <div class="field-row">
+                    <div class="field-group">
+                      <label for="task-topic">Tema</label>
+                      <select id="task-topic">
+                        <option value="ansiedad">Ansiedad</option>
+                        <option value="sueno">Sueno</option>
+                        <option value="enojo">Manejo del enojo</option>
+                        <option value="habitos">Habitos saludables</option>
+                      </select>
+                    </div>
+                    <div class="field-group">
+                      <label for="task-level">Nivel</label>
+                      <select id="task-level">
+                        <option value="basico">Basico</option>
+                        <option value="intermedio">Intermedio</option>
+                      </select>
+                    </div>
+                    <div class="field-group">
+                      <label for="task-days">Duracion (dias)</label>
+                      <select id="task-days">
+                        <option value="3">3 dias</option>
+                        <option value="4">4 dias</option>
+                        <option value="5" selected>5 dias</option>
+                        <option value="6">6 dias</option>
+                        <option value="7">7 dias</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Generar plan y tabla</button>
+                </form>
+
+                <div id="task-output" class="sandbox-result" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="agente" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Coordinacion en terminal</p>
+          <h2>Agente terminal (<code>agente/agente.py</code>)</h2>
+          <p>
+            El agente decide cual de las tres herramientas usar segun tu necesidad, solicita
+            los datos faltantes y devuelve el resultado directamente en terminal, sin
+            depender de servidores externos.
+          </p>
+        </div>
+
+        <div class="agent-box">
+          <p class="sandbox-title">Ensayo interactivo · Simulador de enrutamiento del agente</p>
+          <div class="agent-presets" role="group" aria-label="Ejemplos de necesidad clinica">
+            <button type="button" class="chip-btn" data-prompt="Necesito preparar el acuerdo inicial y confidencialidad con un nuevo consultante.">
+              Ejemplo: Consentimiento
+            </button>
+            <button type="button" class="chip-btn" data-prompt="Tengo apuntes sueltos de la entrevista de hoy y quiero organizarlos en formato SOAP.">
+              Ejemplo: Notas SOAP
+            </button>
+            <button type="button" class="chip-btn" data-prompt="Quiero armar un ejercicio de 5 dias sobre sueno en nivel basico para entre consultas.">
+              Ejemplo: Tarea entre sesiones
+            </button>
+          </div>
+
+          <form id="agent-form" class="sandbox-form">
+            <div class="field-group">
+              <label for="agent-input">Describe tu necesidad de consulta</label>
+              <input
+                id="agent-input"
+                type="text"
+                value="Tengo apuntes sueltos de la entrevista de hoy y quiero organizarlos en formato SOAP."
+                placeholder="Ej. Necesito un consentimiento informado o tareas de ansiedad por 4 dias..."
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar agente</button>
+          </form>
+
+          <div id="agent-output" class="sandbox-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Criterios de apoyo al agente</p>
+          <h2>Skills disponibles en <code>skills/</code></h2>
+          <p>
+            Las skills orientan al agente para que sus respuestas mantengan cuidado etico,
+            cercania clinica y claridad formal.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card skill-lavender">
+            <span class="skill-badge">Skill 01</span>
+            <h3>etica-confidencialidad</h3>
+            <p class="skill-role">Principios de confidencialidad y limites eticos</p>
+            <p>
+              Ayuda a resguardar la privacidad de los datos del consultante, explicitar
+              limites de confidencialidad y mantener un trato responsable en la redaccion
+              de documentos y registros clinicos.
+            </p>
+          </article>
+
+          <article class="skill-card skill-sage">
+            <span class="skill-badge">Skill 02</span>
+            <h3>lenguaje-empatico</h3>
+            <p class="skill-role">Transformacion de lenguaje a tono empatico</p>
+            <p>
+              Ajusta las indicaciones y devoluciones dirigidas al consultante para que
+              resulten comprensibles, respetuosas y validadoras, evitando formulaciones
+              frias o punitivas.
+            </p>
+          </article>
+
+          <article class="skill-card skill-peach">
+            <span class="skill-badge">Skill 03</span>
+            <h3>redaccion-profesional</h3>
+            <p class="skill-role">Normalizacion de texto a formato profesional</p>
+            <p>
+              Ordena y depura la redaccion clinica para que los consentimientos, notas y
+              consignas mantengan coherencia, claridad terminologica y presentacion
+              uniforme.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ejecucion" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Inicio rapido</p>
+          <h2>Como ejecutar el kit en tu equipo</h2>
+          <p>
+            Abre tu terminal en la carpeta del repositorio y ejecuta el menu interactivo
+            principal. Todo funciona de forma local.
+          </p>
+        </div>
+
+        <div class="run-box">
+          <pre class="terminal-block"><code>cd /ruta/al/proyecto
+python3 kit.py</code></pre>
+          <p class="run-note">
+            Desde el menu principal puedes acceder directamente a Consentimiento informado,
+            Notas de sesion y Tareas entre sesiones, o trabajar mediante
+            <code>agente/agente.py</code>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Kit de Consultorio · Documentacion y ensayo interactivo de herramientas en Python</p>
+      <a href="#inicio">Volver arriba</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
